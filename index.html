@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Digital-Clock</title>
+</head>
+<body>
+
+    <section>
+        <h1 id="clocks"></h1>
+
+        <script>
+
+        function digitalClock(){
+            let date=new Date();
+            let Hour= date.getHours();
+            let Minute= date.getMinutes();
+            let Second= date.getSeconds();
+            let ampm= "AM";
+          
+            Hour=(Hour<10)?"0"+Hour:Hour;
+            Minute=(Minute<10)?"0"+Minute:Minute;
+            Second=(Second<10)?"0"+Second:Second;
+            
+            if(Hour==0){
+               Hour==12;
+            }
+            if(Hour>12){
+              Hour=Hour-12;
+              ampm="PM"
+            }
+            let Time=Hour+" : " + ""+ Minute +" : "+"" + Second +" "+ ampm;
+            document.getElementById("clocks").innerText=Time;
+            setTimeout(digitalClock,1000)
+
+        }
+
+        digitalClock();
+        </script>
+    </section>
+
+
+    
+</body>
+</html>
